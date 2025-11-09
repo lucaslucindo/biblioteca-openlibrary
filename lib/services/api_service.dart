@@ -8,8 +8,8 @@ class ApiService {
   // Método para buscar livros pela API
   Future<List<Book>> searchBooks(String query) async {
     try {
-      // Monta a URL com o termo de busca
-      final url = Uri.parse('$baseUrl?q=$query');
+      // Monta a URL com a busca, limitando o retorno de resultados.
+      final url = Uri.parse('$baseUrl?q=$query&limit=20');
 
       // Faz a requisição GET
       final response = await http.get(url);

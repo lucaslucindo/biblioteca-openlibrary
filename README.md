@@ -1,16 +1,19 @@
-# biblioteca_openlibrary
+# Biblioteca OpenLibrary
 
-A new Flutter project.
+Aplicativo Flutter que consome a API pública da OpenLibrary para buscar livros.
 
-## Getting Started
+## Funcionalidades
+- Busca de livros por título, autor ou palavra-chave
+- Exibição de capa, título e autores
+- Limpeza de resultados
 
-This project is a starting point for a Flutter application.
+## Como executar
+1. Clone o repositório
+2. Execute `flutter pub get`
+3. Execute `flutter run`
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Tecnologias
+- Flutter
+- Provider (gerenciamento de estado)
+- HTTP (requisições)
+- OpenLibrary API
