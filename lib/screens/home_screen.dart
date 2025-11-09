@@ -116,8 +116,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         vertical: 8,
                       ),
                       elevation: 2,
-                      child: ListTile(
-                        contentPadding: const EdgeInsets.all(12),
+                      child: ExpansionTile(
                         leading: book.coverUrl != null
                             ? Image.network(
                                 book.coverUrl!,
@@ -143,24 +142,58 @@ class _HomeScreenState extends State<HomeScreen> {
                             fontSize: 16,
                           ),
                         ),
-                        subtitle: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            const SizedBox(height: 4),
-                            Text(
-                              'Autor(es): ${book.authors.join(", ")}',
-                              style: const TextStyle(fontSize: 14),
-                            ),
-                            if (book.firstPublishYear != null)
-                              Text(
-                                'Ano: ${book.firstPublishYear}',
-                                style: const TextStyle(
-                                  fontSize: 12,
-                                  color: Colors.grey,
-                                ),
-                              ),
-                          ],
+                        subtitle: Text(
+                          'Autor(es): ${book.authors.join(", ")}',
+                          style: const TextStyle(fontSize: 14),
                         ),
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.all(16.0),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                if (book.coverUrl != null)
+                                  Center(
+                                    child: Image.network(
+                                      book.coverUrl!,
+                                      height: 200,
+                                      fit: BoxFit.contain,
+                                      errorBuilder:
+                                          (context, error, stackTrace) {
+                                            return const Icon(
+                                              Icons.book,
+                                              size: 100,
+                                              color: Colors.grey,
+                                            );
+                                          },
+                                    ),
+                                  ),
+                                const SizedBox(height: 16),
+                                Text(
+                                  'Título: ${book.title}',
+                                  style: const TextStyle(
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                                const SizedBox(height: 8),
+                                Text(
+                                  'Autor(es): ${book.authors.join(", ")}',
+                                  style: const TextStyle(fontSize: 14),
+                                ),
+                                const SizedBox(height: 8),
+                                if (book.firstPublishYear != null)
+                                  Text(
+                                    'Primeiro ano de publicação: ${book.firstPublishYear}',
+                                    style: const TextStyle(
+                                      fontSize: 14,
+                                      color: Colors.grey,
+                                    ),
+                                  ),
+                              ],
+                            ),
+                          ),
+                        ],
                       ),
                     );
                   },
