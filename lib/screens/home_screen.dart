@@ -34,7 +34,10 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Biblioteca OpenLibrary'),
+        title: const Text(
+          'Biblioteca OpenLibrary',
+          style: TextStyle(color: Colors.white),
+        ),
         backgroundColor: Colors.deepPurple,
         elevation: 0,
       ),
